@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<!-- saved from url=(0055)http://twitter.github.com/bootstrap/examples/hero.html# -->
+<html lang="en">
+
+ <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+    <title>Big Fish Aquarium</title>
+    <meta name="description" content="Hackaton project: make real money building your dream virtual aquarium">
+    <meta name="author" content="Mario Izquierdo">
+    <meta name="author" content="Kyle Patterson">
+    <meta name="author" content="Victor Mendiluce">
+
+    <!-- Le styles -->
+    <link href="http://twitter.github.com/bootstrap/assets/css/bootstrap.css" rel="stylesheet">
+    <style type="text/css">
+      body {
+        padding-top: 60px;
+        padding-bottom: 40px;
+      }
+    </style>
+    <link href="./stylesheets/bootstrap.css" rel="stylesheet">
+    <link href="./stylesheets/application.css" rel="stylesheet">
+
+    <!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <!-- Le fav and touch icons -->
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="http://twitter.github.com/bootstrap/assets/ico/apple-touch-icon-144-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="http://twitter.github.com/bootstrap/assets/ico/apple-touch-icon-114-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="http://twitter.github.com/bootstrap/assets/ico/apple-touch-icon-72-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" href="http://twitter.github.com/bootstrap/assets/ico/apple-touch-icon-57-precomposed.png">
+  </head>
+
+  <body>
+
+    <div class="navbar navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="container">
+          <a class="brand" href="./javascripts/bigfish.html">Big Fish</a>
+          <span id="header-user-info">
+            Hi {{first_name}}, your account balance is £<span class="balance">{{balance}}</span>.
+          </span>
+        </div>
+      </div>
+    </div>
+
+    <div class="container">
+
+      <div id="aquarium-container" class="hero-unit"></div>
+
+      <div id="achievment-text"></div>
+      <div id="badges"> 
+        <img id="badge1" class="badge" src="images/fish_bowl.png">
+        <img id="badge2" class="badge" src="images/fishing.png">
+        <img id="badge3" class="badge" src="images/money.png">
+      </div>
+
+
+      <ul id="cards" class="row thumbnails">
+
+        <!-- Fish CARDS templates here -->
+      </div>
+      <hr>
+
+      <footer>
+        <p>© Betable Hackaton 2012</p>
+      </footer>
+
+    </div> <!-- /container -->
+
+    <!-- Javascript Templates -->
+
+    <script id="fish-card-template" type="text/x-tmpl">
+      <div class="fish-card <%= id %> span3 thumbnail" data-fish-race="<%= id %>">
+        <img src="/images/<%= id %>_card.jpg" />
+        <div class="caption">
+          <h3 class="name"><%= name %></h3>
+          <p class="price">Egg Price: <b>£<%= price %></b></p>
+          <p>Fish variants:</p>
+          <p class="variants">
+            <%= variantHTML %>
+          </p>
+          <p class="buttons">
+            <a class="bet btn btn-primary" href="#">Buy Egg</a>
+          </p>
+        </div>
+      </div>
+    </script>
+
+    <script id="variant-card-template" type="text/x-tmpl">
+      <div class="variant">
+        <span class="chance"><%= chance %>%</span>
+        <span class="name"><%= name %></span>
+        <% if (prize) { %>
+          <span class="prize">(value £<%= prize %>)</span>
+        <% } else { %>
+          <span class="prize">(no value)</span>
+        <% } %>
+      </div>
+    </script>
+
+    <!-- Le javascript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.21/jquery-ui.min.js"></script>
+    <script src="./javascripts/vendor/underscore.js"></script>
+    <script src="./javascripts/vendor/betable-browser-sdk.js"></script>
+    <script src="./javascripts/vendor/bootstrap.min.js"></script>
+
+    <script src="./javascripts/fishcards.js"></script>
+    <script src="./javascripts/fish_aquarium.js"></script>
+    <script src="./javascripts/bigfish_server.js"></script>
+
+    <script type="text/javascript">
+        window.TheBigFishServer = new BigFishServer();
+        window.TheBigFishServer.init('{{game_id}}', '{{access_token}}');
+    </script>
+
+    <script src="./javascripts/application.js"></script>
+
+</body></html>

@@ -1,0 +1,78 @@
+body {
+  background: white url('/images/body_bckg.jpg');
+}
+
+#aquarium-container {
+  background: #0074CC url('/images/aquarium-background.jpg');
+  border: 3px solid #333;
+  box-shadow: inset 0 0 10px #000;
+  height: 300px;
+  margin-bottom: 10px;
+  padding: 0;
+  position: relative;
+}
+#aquarium-container img.fish {
+  position: absolute;
+}
+#aquarium-container img.fish.to-left {
+  -webkit-transform: scaleX(-1);
+     -moz-transform: scaleX(-1);
+          transform: scaleX(-1);
+}
+
+#header-user-info {
+  float: right;
+  padding: 10px 0;
+}
+#header-user-info .balance {
+  font-weight: bold;
+}
+
+.fish-card {
+  border: 1px solid black;
+  background: -webkit-gradient(linear, left top, left bottom, from(#eee), to(#ddd)); /* for webkit browsers */
+  box-shadow: 0 1px 6px #888;
+  font-size: 16px;
+}
+.fish-card img {
+  width: 218px;
+  border: 1px solid #333;
+  border-radius: 3px;
+}
+
+.fish-card.seahorse { /* Start with that hidden */
+  display: none;
+}
+
+.fish-card .name {
+  font-weight: bold;
+  text-shadow: 0.1em 0.1em #fff;
+}
+
+.badge {
+  opacity : 0.4;
+  width: 100px;
+  height: 100px;
+}
+
+#achievment-text {
+  /*color: #00BFFF;*/
+  color: white;
+  background-color: grey;
+  font-family: Arial, "Times New Roman", Times;
+  font-size: 18px;
+  border: solid;
+  border-style:solid;
+  border-width:1px;
+  border-radius: 15px;
+  padding: 5px 3px;
+  margin-bottom: 5px;
+  max-width: auto;
+  height: auto;
+  display: none;
+  padding-left: 15px;
+
+}
+.fish-card .variant {
+  margin-left: 10px;
+}
