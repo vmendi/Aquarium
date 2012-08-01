@@ -1,7 +1,7 @@
 Bet Aquarium
 ===================
 
-Create and nurture your own aquarium while winning money!
+Create and nurture your own aquarium while winning real money!
 
 
 

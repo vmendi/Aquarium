@@ -4,7 +4,7 @@ var _           = require( 'underscore' ),
       , sandbox : require( './configs/sandbox' )
       , real    : require( './configs/real' )
     }
-  , economy     = process.env.NODE_ECONOMY
+  , economy     = process.env.NODE_ECONOMY || 'sandbox'
   , config      = {}
 
 if( _.indexOf(['real','sandbox'], economy ) == -1 ) {
@@ -14,7 +14,7 @@ if( _.indexOf(['real','sandbox'], economy ) == -1 ) {
 
 config = _.extend( configs.base, configs[economy] )
 
-//check commandline for port
+// Check commandline for port
 config.port    = process.env.NODE_PORT || config.port
 config.economy = economy
 

@@ -1,13 +1,7 @@
 var express   = require( 'express' )
   , _         = require( 'underscore' )
-  , config    = {
-      api_key: 'AZx9cKaeu2V45L3Uk84YIpZSspDDTyLM'
-    , api_secret: '1cabiDfVFVXAt26mMBVjx6Xqd9YvtS7F'
-    , game_id: '8jGBUcpKwZu9DP4gTwaT3A'
-    , economy: 'sandbox'
-    , port: 8000
-  }
-  , server    = require( './configure' )( express.createServer() )
+  , config    = require( './config/config' )
+  , server    = require( './configExpress' )( express.createServer() )
   , Betable   = require('betable-oauth-node-sdk')({
         apiKey      : config.api_key
       , apiSecret   : config.api_secret
