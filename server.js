@@ -5,7 +5,7 @@ var express   = require( 'express' )
   , Betable   = require('betable-oauth-node-sdk')({
         apiKey      : config.api_key
       , apiSecret   : config.api_secret
-      , redirectUri : 'http://localhost:8000/callback'
+      , redirectUri : config.callback
     })
 
 server.get( '/', function( req, res, next ) {

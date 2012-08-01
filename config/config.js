@@ -4,19 +4,16 @@ var _           = require( 'underscore' ),
       , sandbox : require( './configs/sandbox' )
       , real    : require( './configs/real' )
     }
-  , economy     = process.env.NODE_ECONOMY || 'sandbox'
-  , config      = {}
-
-if( _.indexOf(['real','sandbox'], economy ) == -1 ) {
-    console.log( 'Invalid economy: ' + economy )
-    process.exit()
-}
+  , deployContext = process.env.NODE_PORT? 'heroku' : 'localhost'
+  , deployURL     = deployContext === 'heroku'? 'http://betaquarium.herokuapp.com' : 'http://localhost'
+  , economy       = process.env.NODE_ECONOMY || 'sandbox'
+  , config        = {}
 
 config = _.extend( configs.base, configs[economy] )
 
-// Check commandline for port
-config.port    = process.env.NODE_PORT || config.port
-config.economy = economy
+config.economy  = economy;
+config.port = process.env.NODE_PORT || config.port;
+config.callback = deployURL + ':' + config.port + '/callback';
 
 console.log( "Starting server on port " + config.port + " using a " + economy + " economy" )
 
