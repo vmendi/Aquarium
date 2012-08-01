@@ -53,6 +53,7 @@ server.get( '/callback', function( req, res, next ) {
     })
 })
 
+// Heroku requires us to read the PORT env variable
 port = process.env.PORT || config.port
 
 server.listen( port )
