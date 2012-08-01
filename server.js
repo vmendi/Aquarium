@@ -5,13 +5,13 @@ var express   = require( 'express' )
     , api_secret: '1cabiDfVFVXAt26mMBVjx6Xqd9YvtS7F'
     , game_id: '8jGBUcpKwZu9DP4gTwaT3A'
     , economy: 'sandbox'
-    , port: 8000
+    , port: 80
   }
   , server    = require( './configure' )( express.createServer() )
   , Betable   = require('betable-oauth-node-sdk')({
         apiKey      : config.api_key
       , apiSecret   : config.api_secret
-      , redirectUri : 'http://localhost:8000/callback'
+      , redirectUri : 'http://localhost:80/callback'
     })
 
 server.get( '/', function( req, res, next ) {
