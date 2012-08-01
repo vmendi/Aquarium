@@ -51,7 +51,9 @@ server.get( '/callback', function( req, res, next ) {
         req.session.access_token = access_token
         return res.redirect('/')
     })
-})	
+})
 
-server.listen( config.port )
-console.log('Server started in port ' + config.port)
+port = process.env.PORT || config.port
+
+server.listen( port )
+console.log('Server started in port ' + port)
