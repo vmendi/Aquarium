@@ -13,7 +13,11 @@ config = _.extend( configs.base, configs[economy] )
 
 config.economy  = economy;
 config.port = process.env.PORT || config.port;
-config.callback = deployURL + ':' + config.port + '/callback';
+
+if (deployContext === 'heroku')
+	config.callback = deployURL + '/callback';
+else
+	config.callback = deployURL + ':' + config.port + '/callback';
 
 console.log("Starting server on " + deployContext);
 console.log("Callback " + config.callback);
