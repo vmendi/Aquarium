@@ -15,6 +15,8 @@ config.economy  = economy;
 config.port = process.env.NODE_PORT || config.port;
 config.callback = deployURL + ':' + config.port + '/callback';
 
-console.log( "Starting server on port " + config.port + " using a " + economy + " economy" )
+console.log("Starting server on " + deployContext);
+console.log("Callback " + config.callback);
+console.log("Using a " + economy + " economy");
 
 module.exports = config
