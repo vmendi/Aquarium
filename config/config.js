@@ -4,7 +4,7 @@ var _           = require( 'underscore' ),
       , sandbox : require( './configs/sandbox' )
       , real    : require( './configs/real' )
     }
-  , deployContext = process.env.NODE_PORT? 'heroku' : 'localhost'
+  , deployContext = process.env.PORT? 'heroku' : 'localhost'
   , deployURL     = deployContext === 'heroku'? 'http://betaquarium.herokuapp.com' : 'http://localhost'
   , economy       = process.env.NODE_ECONOMY || 'sandbox'
   , config        = {}
@@ -12,7 +12,7 @@ var _           = require( 'underscore' ),
 config = _.extend( configs.base, configs[economy] )
 
 config.economy  = economy;
-config.port = process.env.NODE_PORT || config.port;
+config.port = process.env.PORT || config.port;
 config.callback = deployURL + ':' + config.port + '/callback';
 
 console.log("Starting server on " + deployContext);
