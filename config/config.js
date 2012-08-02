@@ -1,23 +1,21 @@
-var _           = require( 'underscore' ),
-    configs     = {
-        base    : require( './configs/base' )
-      , sandbox : require( './configs/sandbox' )
-      , real    : require( './configs/real' )
-    }
-  , deployContext = process.env.PORT? 'heroku' : 'localhost'
+var _             = require( 'underscore' ),
+    deployContext = process.env.PORT? 'heroku' : 'localhost'
   , deployURL     = deployContext === 'heroku'? 'http://betaquarium.herokuapp.com' : 'http://localhost'
   , economy       = process.env.NODE_ECONOMY || 'sandbox'
   , config        = {}
 
-config = _.extend( configs.base, configs[economy] )
+if (deployContext === 'heroku' && economy === 'sandbox')
+  config = require('./configs/heroku-sandbox');
+else
+if (deployContext === 'heroku' && economy === 'real')
+  config = require('./configs/heroku-real')
+else
+if (deployContext === 'localhost')
+  config = require('./configs/localhost')
 
 config.economy  = economy;
-config.port = process.env.PORT || config.port;
-
-if (deployContext === 'heroku')
-	config.callback = deployURL + '/callback';
-else
-	config.callback = deployURL + ':' + config.port + '/callback';
+config.callback = deployContext === 'heroku'? deployURL + '/callback' : deployURL + ':' + config.port + '/callback'
+config.port     = process.env.PORT || config.port;
 
 console.log("Starting server on " + deployContext);
 console.log("Callback " + config.callback);

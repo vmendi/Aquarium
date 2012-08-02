@@ -47,5 +47,5 @@ server.get( '/callback', function( req, res, next ) {
     })
 })
 
-server.listen( config.port )
+server.listen(config.port)
 console.log('Server started in port ' + config.port)
